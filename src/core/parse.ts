@@ -17,13 +17,29 @@ const HWB_REGEX = /^hwb\(\s*(\d+)\s*[,\s]\s*(\d+)%\s*[,\s]\s*(\d+)%\s*(?:[\/,]\s
 const CMYK_REGEX = /^cmyk\(\s*(\d+)%\s*[,\s]\s*(\d+)%\s*[,\s]\s*(\d+)%\s*[,\s]\s*(\d+)%\s*\)$/i
 
 /**
+ * Check if input is a ColorClass instance using duck typing
+ * This avoids circular import issues with instanceof
+ */
+function isColorClass(input: unknown): input is ColorClass {
+  return (
+    input !== null &&
+    typeof input === 'object' &&
+    typeof (input as any).red === 'function' &&
+    typeof (input as any).green === 'function' &&
+    typeof (input as any).blue === 'function' &&
+    typeof (input as any).alpha === 'function' &&
+    typeof (input as any).clone === 'function'
+  )
+}
+
+/**
  * Parse a color from any supported format
  * @param input - Color input (string or object)
  * @returns Color instance or null if invalid
  */
 export function parseColor(input: ColorInput): ColorClass | null {
-  // If it's already a Color, return a clone
-  if (input instanceof ColorClass) {
+  // If it's already a Color, return a clone (using duck typing to avoid circular import issues)
+  if (isColorClass(input)) {
     return input.clone() as ColorClass
   }
 

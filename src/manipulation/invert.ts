@@ -1,6 +1,7 @@
 import type { ColorInput } from '../types.js'
 import { parseColor } from '../core/parse.js'
 import { ColorClass } from '../core/color.js'
+import { spin } from './spin.js'
 
 /**
  * Convert a color to grayscale
@@ -28,6 +29,5 @@ export function invert(color: ColorInput): ColorClass {
  * Get the complementary color (180° hue rotation)
  */
 export function complement(color: ColorInput): ColorClass {
-  const { spin } = require('./spin.js')
   return spin(color, 180)
 }
