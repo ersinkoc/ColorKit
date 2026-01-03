@@ -1,0 +1,6 @@
+export { lighten, darken } from './lighten.js'
+export { saturate, desaturate } from './saturate.js'
+export { brighten } from './brighten.js'
+export { spin } from './spin.js'
+export { grayscale, invert, complement } from './invert.js'
+export { fade, fadeIn, fadeOut, opaque, transparent } from './alpha.js'

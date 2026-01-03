@@ -1,0 +1,6 @@
+export { getComplementary } from './complementary.js'
+export { getTriadic } from './triadic.js'
+export { getTetradic } from './tetradic.js'
+export { getAnalogous } from './analogous.js'
+export { getSplitComplementary } from './split.js'
+export { getMonochromatic } from './monochromatic.js'

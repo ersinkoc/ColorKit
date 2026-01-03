@@ -1,0 +1,137 @@
+.api-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.api-page > h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.api-intro {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 3rem;
+}
+
+.api-category {
+  margin-bottom: 5rem;
+  scroll-margin-top: 100px;
+}
+
+.api-category > h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.category-description {
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.api-item {
+  background: var(--color-bg-glass);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.api-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-float);
+  border-color: var(--color-border-glass);
+}
+
+.api-name {
+  margin-bottom: 1rem;
+}
+
+.api-name code {
+  background: var(--color-code-bg);
+  color: #e5e5e5;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: 'Geist Mono', monospace;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.api-description {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.api-params, .api-returns, .api-example {
+  margin-top: 1.5rem;
+}
+
+.api-params h4, .api-returns h4, .api-example h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 1rem;
+}
+
+.api-params table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-bg-secondary);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.api-params th,
+.api-params td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.api-params tr:last-child th,
+.api-params tr:last-child td {
+  border-bottom: none;
+}
+
+.api-params th {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  background: var(--color-bg-tertiary);
+}
+
+.api-params code {
+  background: var(--color-code-bg);
+  color: #e5e5e5;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: 'Geist Mono', monospace;
+}
+
+.api-returns p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.api-returns code {
+  background: var(--color-bg-secondary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}

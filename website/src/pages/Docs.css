@@ -1,0 +1,77 @@
+.docs-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.docs-page > h1 {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.doc-section {
+  margin-bottom: 5rem;
+  scroll-margin-top: 100px;
+}
+
+.doc-section > h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.doc-section > p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.doc-section > .code-block {
+  margin: 1.5rem 0;
+}
+
+.doc-section > ul,
+.doc-section > ol {
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.doc-section > ul li,
+.doc-section > ol li {
+  margin-bottom: 0.5rem;
+}
+
+.doc-section > ul li::marker {
+  color: var(--color-primary);
+}
+
+.doc-section strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.doc-section code {
+  background: var(--color-bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+
+.doc-section a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.doc-section a:hover {
+  border-color: var(--color-primary);
+}
