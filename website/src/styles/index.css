@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   /* Light Theme - Vibrant & Clean */
@@ -29,15 +29,15 @@
 }
 
 .dark {
-  /* Dark Theme - Deep & Rich */
-  --color-bg: #0a0a0a;
-  --color-bg-secondary: rgba(255, 255, 255, 0.05);
-  --color-bg-glass: rgba(20, 20, 20, 0.8);
+  /* Dark Theme - Balanced & Readable */
+  --color-bg: #121214;
+  --color-bg-secondary: rgba(255, 255, 255, 0.06);
+  --color-bg-glass: rgba(35, 35, 40, 0.95);
   --color-text: #fafafa;
-  --color-text-secondary: #a3a3a3;
-  --color-text-tertiary: #525252;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-glass: rgba(255, 255, 255, 0.1);
+  --color-text-secondary: #b8b8b8;
+  --color-text-tertiary: #707070;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-glass: rgba(255, 255, 255, 0.15);
 
   /* Vibrant accent colors - boosted for dark mode */
   --color-accent-1: #ff8787;
@@ -50,10 +50,10 @@
   --color-primary: #5bc9de;
   --color-primary-hover: #7dd8eb;
 
-  --color-code-bg: #0f0f1a;
-  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
-  --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --color-code-bg: #1a1a24;
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-float: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 * {
