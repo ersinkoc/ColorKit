@@ -1,6 +1,6 @@
 {
   "name": "@oxog/colorkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zero-dependency headless color picker and utilities with format conversion and accessibility",
   "type": "module",
   "main": "./dist/index.cjs",
