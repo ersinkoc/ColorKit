@@ -43,9 +43,9 @@ export function rgbToHsv(rgb: RgbColor): HsvaColor {
 
 /**
  * Convert HSV to RGB
- * @param hsv - HSV color
+ * @param hsv - HSV or HSVA color
  */
-export function hsvToRgb(hsv: HsvColor): RgbaColor {
+export function hsvToRgb(hsv: HsvColor | HsvaColor): RgbaColor {
   const h = hsv.h / 360
   const s = hsv.s / 100
   const v = hsv.v / 100

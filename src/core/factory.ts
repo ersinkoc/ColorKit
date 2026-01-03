@@ -1,4 +1,4 @@
-import type { ColorInput } from '../types.js'
+import type { ColorInput, HslaColor, HsvaColor, HwbColor } from '../types.js'
 import { ColorClass } from './color.js'
 import { parseColor } from './parse.js'
 import { hslToRgb } from '../conversion/hsl.js'
@@ -27,7 +27,8 @@ export function rgb(r: number, g: number, b: number, a: number = 1): ColorClass 
  * Create a color from HSL values
  */
 export function hsl(h: number, s: number, l: number, a: number = 1): ColorClass {
-  const rgbColor = hslToRgb({ h, s, l, a })
+  const hslaColor: HslaColor = { h, s, l, a }
+  const rgbColor = hslToRgb(hslaColor)
   return new ColorClass(rgbColor.r, rgbColor.g, rgbColor.b, rgbColor.a)
 }
 
@@ -35,15 +36,17 @@ export function hsl(h: number, s: number, l: number, a: number = 1): ColorClass 
  * Create a color from HSV values
  */
 export function hsv(h: number, s: number, v: number, a: number = 1): ColorClass {
-  const rgbColor = hsvToRgb({ h, s, v, a })
+  const hsvaColor: HsvaColor = { h, s, v, a }
+  const rgbColor = hsvToRgb(hsvaColor)
   return new ColorClass(rgbColor.r, rgbColor.g, rgbColor.b, rgbColor.a)
 }
 
 /**
  * Create a color from HWB values
  */
-export function hwb(h: number, w: number, b: number, a: number = 1): ColorClass {
-  const rgbColor = hwbToRgb({ h, w, b, a })
+export function hwb(h: number, w: number, bVal: number, a: number = 1): ColorClass {
+  const hwbColor: HwbColor = { h, w, b: bVal, a }
+  const rgbColor = hwbToRgb(hwbColor)
   return new ColorClass(rgbColor.r, rgbColor.g, rgbColor.b, rgbColor.a)
 }
 

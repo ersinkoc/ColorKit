@@ -44,9 +44,9 @@ export function rgbToHsl(rgb: RgbColor): HslaColor {
 
 /**
  * Convert HSL to RGB
- * @param hsl - HSL color
+ * @param hsl - HSL or HSLA color
  */
-export function hslToRgb(hsl: HslColor): RgbaColor {
+export function hslToRgb(hsl: HslColor | HslaColor): RgbaColor {
   const h = hsl.h / 360
   const s = hsl.s / 100
   const l = hsl.l / 100

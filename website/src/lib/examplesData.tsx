@@ -316,7 +316,7 @@ module.exports = {
           const palette = generateTailwindPalette(baseColor)
           return (
             <div className="tailwind-palette">
-              {Object.entries(palette).map(([key, hex]) => (
+              {(Object.entries(palette) as [string, string][]).map(([key, hex]) => (
                 <div key={key} className="tailwind-swatch" onClick={() => navigator.clipboard.writeText(hex)}>
                   <div
                     className="tailwind-color"
