@@ -76,3 +76,7 @@ bun.lockb
 .npmrc
 .yarnrc
 *.local
+
+.playwright-mcp/
+.playwright-report/
+.playwright-video/
