@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.0] - 2025-01-03
+### Changed
+
+- Website: Improved CodeBlock component with Mac-style header, theme selector, and copy button
+- Website: Fixed code alignment issue in CodeBlock (left-aligned instead of centered)
+- Website: Added gradient animated titles to all pages
+- Website: Added sidebar navigation to Documentation page with scroll tracking
+- Website: Added footer with creator credit (Ersin KOC) and GitHub link
+- CI: Fixed GitHub Actions deploy workflow (removed npm cache requirement)
+
+## [1.0.0] - 2026-01-03
 
 ### Added
 
