@@ -11,18 +11,12 @@ export function rgbToCmyk(rgb: RgbColor): CmykColor & { a: number } {
   let g = rgb.g / 255
   let b = rgb.b / 255
 
-  // Special case for black
+  // Special case for black (r=g=b=0 means k=1, which would cause division by zero)
   if (r === 0 && g === 0 && b === 0) {
     return { c: 0, m: 0, y: 0, k: 100, a: 1 }
   }
 
   const k = 1 - Math.max(r, g, b)
-
-  // If black is 1, all colors are 0
-  if (k === 1) {
-    return { c: 0, m: 0, y: 0, k: 100, a: 1 }
-  }
-
   const c = (1 - r - k) / (1 - k)
   const m = (1 - g - k) / (1 - k)
   const y = (1 - b - k) / (1 - k)
