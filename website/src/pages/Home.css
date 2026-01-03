@@ -203,42 +203,9 @@
   text-align: center;
 }
 
-.code-block {
-  background: var(--color-code-bg);
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: left;
+.code-preview .code-block-wrapper {
   max-width: 800px;
   margin: 0 auto;
-  box-shadow: var(--shadow-float);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.code-block::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg,
-    transparent,
-    var(--color-accent-1),
-    var(--color-accent-2),
-    var(--color-accent-3),
-    transparent);
-}
-
-.code-block pre {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.code-block code {
-  color: #e2e8f0;
 }
 
 @keyframes fadeInUp {

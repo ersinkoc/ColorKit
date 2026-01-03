@@ -1,17 +1,78 @@
+# Dependencies
 node_modules/
+
+# Build outputs
 dist/
+*.tsbuildinfo
+
+# Type declarations (generated)
 *.d.ts
 *.d.cts
 *.d.mts
+!src/**/*.d.ts
+
+# Source maps
 *.map
-.env
-.env.local
-.env.*.local
-.DS_Store
-*.log
-npm-debug.log
-yarn-debug.log
-yarn-error.log
-pnpm-debug.log
-*.tsbuildinfo
+
+# Test coverage
 coverage/
+.nyc_output/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE / Editor
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+*.tscache/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Package manager locks (keep package-lock.json)
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# Misc
+.npmrc
+.yarnrc
+*.local

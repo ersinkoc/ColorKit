@@ -24,7 +24,7 @@ export function Playground() {
 
   return (
     <div className="playground-page">
-      <h1>Playground</h1>
+      <h1><span className="gradient-text">Playground</span></h1>
       <p className="playground-intro">
         Experiment with colors in real-time. Try different color formats!
       </p>
@@ -171,23 +171,23 @@ color.shade(20).toHex() // "${color.shade(20).toHex()}"
           </div>
           <div className="format-card">
             <h4>HSL</h4>
-            <code>hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)</code>
+            <code>hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</code>
           </div>
           <div className="format-card">
             <h4>HSLA</h4>
-            <code>hsla(${hsl.h}, ${hsl.s}%, ${hsl.l}%, ${hsl.a.toFixed(2)})</code>
+            <code>hsla({hsl.h}, {hsl.s}%, {hsl.l}%, {hsl.a.toFixed(2)})</code>
           </div>
           <div className="format-card">
             <h4>HSV</h4>
-            <code>hsv(${hsv.h}, ${hsv.s}%, ${hsv.v}%)</code>
+            <code>hsv({hsv.h}, {hsv.s}%, {hsv.v}%)</code>
           </div>
           <div className="format-card">
             <h4>HWB</h4>
-            <code>hwb(${color.toHwb().h}, ${color.toHwb().w}%, ${color.toHwb().b}%)</code>
+            <code>hwb({color.toHwb().h}, {color.toHwb().w}%, {color.toHwb().b}%)</code>
           </div>
           <div className="format-card">
             <h4>CMYK</h4>
-            <code>cmyk(${color.toCmyk().c}, ${color.toCmyk().m}, ${color.toCmyk().y}, ${color.toCmyk().k})</code>
+            <code>cmyk({color.toCmyk().c}, {color.toCmyk().m}, {color.toCmyk().y}, {color.toCmyk().k})</code>
           </div>
         </div>
       </div>

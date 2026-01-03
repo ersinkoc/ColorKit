@@ -6,7 +6,7 @@ import './Examples.css'
 export function Examples() {
   return (
     <div className="examples-page">
-      <h1>Examples</h1>
+      <h1><span className="gradient-text">Examples</span></h1>
       <p className="examples-intro">
         Interactive examples demonstrating ColorKit's capabilities.
         Try them out and see the code!

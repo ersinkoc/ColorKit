@@ -124,7 +124,7 @@
 
 .footer {
   border-top: 1px solid var(--color-border);
-  padding: 3rem 2rem;
+  padding: 2.5rem 2rem;
   margin-top: auto;
   background: var(--color-bg-glass);
   backdrop-filter: blur(10px);
@@ -136,17 +136,95 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
+  gap: 2rem;
 }
 
-.footer a {
-  color: var(--color-text-secondary);
-  transition: color 0.2s ease;
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  align-items: center;
 }
 
-.footer a:hover {
+.footer-left {
+  flex: 1;
+}
+
+.footer-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.footer-right {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.footer-copyright {
+  margin: 0;
+}
+
+.footer-creator {
+  margin: 0;
+}
+
+.footer-creator a {
   color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.footer-creator a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+  transition: width 0.3s ease;
+}
+
+.footer-creator a:hover::after {
+  width: 100%;
+}
+
+.footer-creator a:hover {
+  color: var(--color-accent-1);
+}
+
+.footer-github {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-github:hover {
+  background: var(--color-bg-glass);
+  border-color: var(--color-primary);
+  color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.footer-github svg {
+  transition: transform 0.3s ease;
+}
+
+.footer-github:hover svg {
+  transform: rotate(10deg);
 }
 
 /* Floating color orbs decoration */
@@ -202,9 +280,105 @@
   }
 }
 
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: var(--color-bg-glass);
+  color: var(--color-text);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-bg);
+  z-index: 200;
+  padding: 2rem;
+  flex-direction: column;
+  animation: slideIn 0.3s ease;
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+.mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.mobile-nav-close {
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-secondary);
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-close:hover {
+  background: var(--color-bg-glass);
+  color: var(--color-text);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-nav-link {
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.mobile-nav-link.active {
+  background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+  color: white;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   .nav {
     display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
   }
 
   .header-container {
@@ -218,8 +392,20 @@
 
   .footer-container {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
     text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    justify-content: center;
+    flex: none;
+    width: 100%;
+  }
+
+  .footer-github span {
+    display: none;
   }
 
   .color-orb {

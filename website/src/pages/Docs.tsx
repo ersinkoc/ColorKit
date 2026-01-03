@@ -1,12 +1,69 @@
+import { useState, useEffect } from 'react'
 import { CodeBlock } from '../components/CodeBlock'
 import './Docs.css'
 
+const sections = [
+  { id: 'installation', label: 'Installation' },
+  { id: 'quick-start', label: 'Quick Start' },
+  { id: 'conversion', label: 'Color Conversion' },
+  { id: 'manipulation', label: 'Color Manipulation' },
+  { id: 'mixing', label: 'Color Mixing' },
+  { id: 'harmony', label: 'Color Harmony' },
+  { id: 'palette', label: 'Palette Generation' },
+]
+
 export function Docs() {
+  const [activeSection, setActiveSection] = useState('installation')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionElements = sections.map(s => document.getElementById(s.id))
+      const scrollPos = window.scrollY + 150
+
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const section = sectionElements[i]
+        if (section && section.offsetTop <= scrollPos) {
+          setActiveSection(sections[i].id)
+          break
+        }
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <div className="docs-page">
-      <h1>Documentation</h1>
+      <aside className="docs-sidebar">
+        <nav className="docs-nav">
+          <h3>On this page</h3>
+          <ul>
+            {sections.map((section) => (
+              <li key={section.id}>
+                <button
+                  className={activeSection === section.id ? 'active' : ''}
+                  onClick={() => scrollToSection(section.id)}
+                >
+                  {section.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
 
-      <section className="doc-section">
+      <div className="docs-content">
+        <h1><span className="gradient-text">Documentation</span></h1>
+
+      <section id="installation" className="doc-section">
         <h2>Installation</h2>
         <CodeBlock language="bash" code={`npm install @oxog/colorkit
 # or
@@ -15,7 +72,7 @@ yarn add @oxog/colorkit
 pnpm add @oxog/colorkit`} />
       </section>
 
-      <section className="doc-section">
+      <section id="quick-start" className="doc-section">
         <h2>Quick Start</h2>
         <p>Create colors in multiple ways:</p>
         <CodeBlock language="typescript" code={`import { ColorClass } from '@oxog/colorkit'
@@ -34,7 +91,7 @@ console.log(c2.toHex()) // "#ff0000"
 console.log(c3.toHex()) // "#ff0000"`} />
       </section>
 
-      <section className="doc-section">
+      <section id="conversion" className="doc-section">
         <h2>Color Conversion</h2>
         <p>Convert between different color formats:</p>
         <CodeBlock language="typescript" code={`const color = new ColorClass(255, 0, 0)
@@ -46,7 +103,7 @@ color.toHsv()      // { h: 0, s: 100, v: 100, a: 1 }
 color.toCmyk()     // { c: 0, m: 100, y: 100, k: 0 }`} />
       </section>
 
-      <section className="doc-section">
+      <section id="manipulation" className="doc-section">
         <h2>Color Manipulation</h2>
         <p>Manipulate colors with various operations:</p>
         <CodeBlock language="typescript" code={`import { lighten, darken, saturate } from '@oxog/colorkit'
@@ -62,7 +119,7 @@ const darker = darken(color, 20)
 const saturated = saturate(color, 30)`} />
       </section>
 
-      <section className="doc-section">
+      <section id="mixing" className="doc-section">
         <h2>Color Mixing</h2>
         <p>Mix colors together:</p>
         <CodeBlock language="typescript" code={`import { mix, tint, shade } from '@oxog/colorkit'
@@ -80,7 +137,7 @@ const pink = tint(red, 30)
 const darkRed = shade(red, 30)`} />
       </section>
 
-      <section className="doc-section">
+      <section id="harmony" className="doc-section">
         <h2>Color Harmony</h2>
         <p>Generate color harmonies:</p>
         <CodeBlock language="typescript" code={`import { getComplementary, getTriadic } from '@oxog/colorkit'
@@ -92,7 +149,7 @@ const [comp] = getComplementary('#ff0000')
 const [c1, c2, c3] = getTriadic('#ff0000')`} />
       </section>
 
-      <section className="doc-section">
+      <section id="palette" className="doc-section">
         <h2>Palette Generation</h2>
         <p>Generate color palettes:</p>
         <CodeBlock language="typescript" code={`import { generatePalette } from '@oxog/colorkit'
@@ -100,6 +157,7 @@ const [c1, c2, c3] = getTriadic('#ff0000')`} />
 const palette = generatePalette('#ff0000')
 // { 50: "#ff8080", 100: "#ff6666", ..., 950: "#500000" }`} />
       </section>
+      </div>
     </div>
   )
 }

@@ -10,6 +10,25 @@
   letter-spacing: -0.02em;
 }
 
+.gradient-text {
+  background: linear-gradient(135deg,
+    var(--color-accent-1) 0%,
+    var(--color-accent-2) 25%,
+    var(--color-accent-3) 50%,
+    var(--color-accent-4) 75%,
+    var(--color-accent-5) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 .playground-intro {
   font-size: 1.125rem;
   color: var(--color-text-secondary);

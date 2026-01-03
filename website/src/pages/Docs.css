@@ -1,13 +1,97 @@
 .docs-page {
-  max-width: 900px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.docs-page > h1 {
+.docs-sidebar {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.docs-nav {
+  background: var(--color-bg-glass);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.docs-nav h3 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 1rem;
+}
+
+.docs-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.docs-nav li {
+  margin-bottom: 0.25rem;
+}
+
+.docs-nav button {
+  width: 100%;
+  text-align: left;
+  padding: 0.625rem 0.875rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.docs-nav button:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+}
+
+.docs-nav button.active {
+  background: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+  color: white;
+  font-weight: 600;
+}
+
+.docs-content {
+  max-width: 800px;
+}
+
+.docs-content > h1 {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg,
+    var(--color-accent-1) 0%,
+    var(--color-accent-2) 25%,
+    var(--color-accent-3) 50%,
+    var(--color-accent-4) 75%,
+    var(--color-accent-5) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .doc-section {
@@ -74,4 +158,37 @@
 
 .doc-section a:hover {
   border-color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+  .docs-page {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .docs-sidebar {
+    position: relative;
+    top: 0;
+  }
+
+  .docs-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .docs-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .docs-nav li {
+    margin-bottom: 0;
+  }
+
+  .docs-nav button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
 }

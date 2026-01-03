@@ -5,7 +5,7 @@ import './Api.css'
 export function Api() {
   return (
     <div className="api-page">
-      <h1>API Reference</h1>
+      <h1><span className="gradient-text">API Reference</span></h1>
       <p className="api-intro">
         Complete API documentation for ColorKit. Click on any category to expand.
       </p>
